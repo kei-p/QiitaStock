@@ -2,5 +2,6 @@ body {
 }
 
 #container {
-  width: 100px;
+  width: 300px;
+  word-wrap: normal;
 }

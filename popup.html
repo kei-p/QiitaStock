@@ -6,10 +6,15 @@
     <link rel="stylesheet" href="css/popup.css" type="text/css">
   </head>
   <body>
-    <div id="container">
-      <div id="message"></div>
-    </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/popup.js"></script>
+    <div id="container">
+      <form name="auth">
+        <input type="text" name="token" placeholder="token"/>
+        <input type="text" name="userId" placeholder="id"/>
+        <input type="button" value="更新" id="update"/>
+      </div>
+      <div id="message"></div>
+    </div>
   </body>
 </html>
