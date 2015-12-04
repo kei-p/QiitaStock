@@ -12,6 +12,7 @@ $(function () {
     return stocks;
   }
 
+
   var renderStocks = function (stocks) {
     stocks.forEach(function(v, i, a) {
       var link = $(`<a href="${v.url}" target="_blank">${v.title}</a>`)
@@ -20,21 +21,29 @@ $(function () {
     });
   }
 
+  var fqdn = function (teamId) {
+    if(teamId) {
+      return `${teamId}.qiita.com`
+    } else {
+      return "qiita.com"
+    }
+  }
+
   var fetchStock = function() {
     chrome.storage.local.get({
         token: null,
         userId: null,
-        fqdn: null
+        teamId: null
       },
       function(d) {
         var token = d.token
         var userId = d.userId
-        var fqdn = d.fqdn
+        var f = fqdn(d.teamId)
 
         $('#message').text("");
         $.ajax({
           type: 'GET',
-          url: `http://${fqdn}/api/v2/users/${userId}/stocks`,
+          url: `http://${f}/api/v2/users/${userId}/stocks`,
           dataType: 'json',
           headers: {
             'Authorization' : `Bearer ${token}`
