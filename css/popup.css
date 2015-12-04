@@ -8,18 +8,37 @@ body {
 }
 
 #header {
-  height: 20px;
-  margin: 2px 2px;
+  height: 25px;
+  background-color: grey;
+}
+
+#header.qiita {
+  background-color: #59bb0c;
+}
+
+#header.qiita-team {
+  background-color: #458ac5;
+}
+
+#header-inner {
+  padding: 5px 10px;
+}
+
+#header-title {
+  float: left;
+  color: white;
+  font-weight: bold;
 }
 
 #back-btn {
   float: left;
-  color: #777;
+  color: white;
 }
 
 #setting-btn {
   float: right;
-  color: #777;
+  color: white;
+  height: 14px;
 }
 
 #stocks {

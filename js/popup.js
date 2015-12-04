@@ -17,7 +17,6 @@ $(function () {
     return stocks;
   }
 
-
   var renderStocks = function (stocks) {
     stocks.forEach(function(v, i, a) {
       var icon = $('<div class="stock-cell-icon">').append(`<img alt="${v.user.id}" class="stock-cell-icon-img" src="${v.user.icon}">`)
@@ -54,9 +53,16 @@ $(function () {
       function(d) {
         var token = d.token
         var userId = d.userId
-        var f = fqdn(d.teamId)
+        var teamId = d.teamId
+        var f = fqdn(teamId)
 
+        var hclass = teamId ? "qiita-team" : "qiita"
+        var title = teamId ? "Qiita Team" : "Qiita"
+
+        $('#header').toggleClass(hclass)
+        $('#header-title').text(title)
         $('#message').text("");
+
         $.ajax({
           type: 'GET',
           url: `http://${f}/api/v2/users/${userId}/stocks`,
