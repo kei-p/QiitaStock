@@ -4,14 +4,16 @@ $(function () {
   var saveToStrage = function () {
     var token = document.auth.token.value
     var userId = document.auth.userId.value
+    var host = document.auth.host.value
 
     auth = {
       token: token,
-      userId: userId
+      userId: userId,
+      host: host
     }
 
     chrome.storage.local.set(auth, function(){
-      fetchStock();
+      console.log("saved")
     });
   }
 

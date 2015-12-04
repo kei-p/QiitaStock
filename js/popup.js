@@ -23,16 +23,18 @@ $(function () {
   var fetchStock = function() {
     chrome.storage.local.get({
         token: null,
-        userId: null
+        userId: null,
+        host: null
       },
       function(d) {
         var token = d.token
         var userId = d.userId
+        var host = d.host
 
         $('#message').text("");
         $.ajax({
           type: 'GET',
-          url: `http://sfidante.qiita.com/api/v2/users/${userId}/stocks`,
+          url: `http://${host}/api/v2/users/${userId}/stocks`,
           dataType: 'json',
           headers: {
             'Authorization' : `Bearer ${token}`
