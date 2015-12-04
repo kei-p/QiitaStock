@@ -4,12 +4,12 @@ $(function () {
   var saveToStrage = function () {
     var token = document.auth.token.value
     var userId = document.auth.userId.value
-    var host = document.auth.host.value
+    var fqdn = document.auth.fqdn.value
 
     auth = {
       token: token,
       userId: userId,
-      host: host
+      fqdn: fqdn
     }
 
     chrome.storage.local.set(auth, function(){
@@ -20,15 +20,15 @@ $(function () {
   chrome.storage.local.get({
       token: null,
       userId: null,
-      host: null
+      fqdn: null
     },
     function(d) {
       var token = d.token
       var userId = d.userId
-      var host = d.host
+      var fqdn = d.fqdn
       document.auth.token.value = d.token
       document.auth.userId.value = d.userId
-      document.auth.host.value = d.host
+      document.auth.fqdn.value = d.fqdn
     });
 
   document.getElementById("update").addEventListener("click", saveToStrage)

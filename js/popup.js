@@ -24,17 +24,17 @@ $(function () {
     chrome.storage.local.get({
         token: null,
         userId: null,
-        host: null
+        fqdn: null
       },
       function(d) {
         var token = d.token
         var userId = d.userId
-        var host = d.host
+        var fqdn = d.fqdn
 
         $('#message').text("");
         $.ajax({
           type: 'GET',
-          url: `http://${host}/api/v2/users/${userId}/stocks`,
+          url: `http://${fqdn}/api/v2/users/${userId}/stocks`,
           dataType: 'json',
           headers: {
             'Authorization' : `Bearer ${token}`
