@@ -4,4 +4,20 @@ body {
 #container {
   width: 300px;
   word-wrap: normal;
+  margin: 5px;
+}
+
+#header {
+  height: 20px;
+  margin: 2px 2px;
+}
+
+#back-btn {
+  float: left;
+  color: #777;
+}
+
+#setting-btn {
+  float: right;
+  color: #777;
 }
