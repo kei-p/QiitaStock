@@ -13,7 +13,7 @@ $(function () {
     return stocks;
   }
 
-  var loadStock = function() {
+  var fetchStock = function() {
     var token = document.auth.token.value
     var userId = document.auth.userId.value
 
@@ -33,5 +33,6 @@ $(function () {
       }
     });
   }
-  document.getElementById("update").addEventListener("click", loadStock)
+
+  document.getElementById("update").addEventListener("click", fetchStock)
 });
