@@ -1,6 +1,5 @@
 $(function () {
-  chrome.tabs.getSelected(null, function(tab) {
-  });
+  var auth = {}
 
   var stocks = function (data) {
     var stocks = []
@@ -14,25 +13,47 @@ $(function () {
   }
 
   var fetchStock = function() {
+    chrome.storage.local.get({
+        token: null,
+        userId: null
+      },
+      function(d) {
+        var token = d.token
+        var userId = d.userId
+
+        $('#message').text("");
+        $.ajax({
+          type: 'GET',
+          url: `http://sfidante.qiita.com/api/v2/users/${userId}/stocks`,
+          dataType: 'json',
+          headers: {
+            'Authorization' : `Bearer ${token}`
+          },
+          success: function(d) {
+            $('#message').text(JSON.stringify(stocks(d), null, 2));
+          },
+          error: function(r, s, e){
+            $('#message').text(JSON.stringify(e));
+          }
+        });
+      }
+    );
+  }
+
+  var saveToStrage = function () {
     var token = document.auth.token.value
     var userId = document.auth.userId.value
 
-    $('#message').text("");
-    $.ajax({
-      type: 'GET',
-      url: `http://sfidante.qiita.com/api/v2/users/${userId}/stocks`,
-      dataType: 'json',
-      headers: {
-        'Authorization' : `Bearer ${token}`
-      },
-      success: function(d) {
-        $('#message').text(JSON.stringify(stocks(d), null, 2));
-      },
-      error: function(r, s, e){
-        $('#message').text(JSON.stringify(e));
-      }
+    auth = {
+      token: token,
+      userId: userId
+    }
+
+    chrome.storage.local.set(auth, function(){
+      fetchStock();
     });
   }
 
-  document.getElementById("update").addEventListener("click", fetchStock)
+  document.getElementById("update").addEventListener("click", saveToStrage)
+  fetchStock();
 });
