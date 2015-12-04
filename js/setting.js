@@ -17,5 +17,19 @@ $(function () {
     });
   }
 
+  chrome.storage.local.get({
+      token: null,
+      userId: null,
+      host: null
+    },
+    function(d) {
+      var token = d.token
+      var userId = d.userId
+      var host = d.host
+      document.auth.token.value = d.token
+      document.auth.userId.value = d.userId
+      document.auth.host.value = d.host
+    });
+
   document.getElementById("update").addEventListener("click", saveToStrage)
 });
