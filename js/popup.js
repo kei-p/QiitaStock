@@ -16,7 +16,7 @@ $(function () {
   var renderStocks = function (stocks) {
     stocks.forEach(function(v, i, a) {
       var link = $(`<a href="${v.url}" target="_blank">${v.title}</a>`)
-      var stock = $('<li>').append(link)
+      var stock = $('<div class="stock-cell">').append(link)
       $('#stocks').append(stock)
     });
   }

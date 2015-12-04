@@ -4,7 +4,7 @@ body {
 #container {
   width: 300px;
   word-wrap: normal;
-  margin: 5px;
+  margin: 10px;
 }
 
 #header {
@@ -20,4 +20,19 @@ body {
 #setting-btn {
   float: right;
   color: #777;
+}
+
+#stocks {
+  list-style: none;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+.stock-cell {
+  margin: 4px 4px;
+  border-bottom: 1px solid #ddd;
+}
+
+.stock-cell:last-child {
+  border-bottom: none;
 }
