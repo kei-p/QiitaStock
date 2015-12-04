@@ -12,6 +12,14 @@ $(function () {
     return stocks;
   }
 
+  var renderStocks = function (stocks) {
+    stocks.forEach(function(v, i, a) {
+      var link = $(`<a href="${v.url}" target="_blank">${v.title}</a>`)
+      var stock = $('<li>').append(link)
+      $('#stocks').append(stock)
+    });
+  }
+
   var fetchStock = function() {
     chrome.storage.local.get({
         token: null,
@@ -30,7 +38,7 @@ $(function () {
             'Authorization' : `Bearer ${token}`
           },
           success: function(d) {
-            $('#message').text(JSON.stringify(stocks(d), null, 2));
+            renderStocks(stocks(d))
           },
           error: function(r, s, e){
             $('#message').text(JSON.stringify(e));
