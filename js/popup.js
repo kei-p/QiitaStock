@@ -4,9 +4,14 @@ $(function () {
   var stocks = function (data) {
     var stocks = []
     data.map( function (v, i, a){
-      var stock = {}
-      stock.title = v.title
-      stock.url = v.url
+      var stock = {
+        title: v.title,
+        url: v.url,
+        user: {
+          id: `@${v.user.id}`,
+          icon: v.user.profile_image_url
+        }
+      }
       stocks.push(stock)
     });
     return stocks;
@@ -15,8 +20,19 @@ $(function () {
 
   var renderStocks = function (stocks) {
     stocks.forEach(function(v, i, a) {
-      var link = $(`<a href="${v.url}" target="_blank">${v.title}</a>`)
-      var stock = $('<div class="stock-cell">').append(link)
+      var icon = $('<div class="stock-cell-icon">').append(`<img alt="${v.user.id}" class="stock-cell-icon-img" src="${v.user.icon}">`)
+      var userId = $('<div class="stock-cell-userId">').text(v.user.id)
+
+      var author = $('<div class="stock-cell-author">')
+      author.append(icon)
+      author.append(userId)
+
+      var body = $('<div class="stock-cell-body">').append($(`<a href="${v.url}" target="_blank">${v.title}</a>`))
+
+      var stock = $('<div class="stock-cell">')
+      stock.append(body)
+      stock.append(author)
+
       $('#stocks').append(stock)
     });
   }

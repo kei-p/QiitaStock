@@ -36,3 +36,27 @@ body {
 .stock-cell:last-child {
   border-bottom: none;
 }
+
+.stock-cell-author {
+  height: 18px;
+}
+
+.stock-cell-icon {
+  float: left;
+}
+.stock-cell-icon-img {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+
+.stock-cell-userId {
+  margin-left: 18px;
+  font-size: small;
+  color: #666;
+}
+
+.stock-cell-body {
+  font-weight: bold;
+}
