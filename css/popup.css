@@ -1,8 +1,9 @@
 body {
+  width: 300px;
 }
 
 #container {
-  width: 300px;
+  width: 280px;
   word-wrap: normal;
   margin: 10px;
 }
@@ -33,12 +34,36 @@ body {
 #back-btn {
   float: left;
   color: white;
+  height: 14px;
 }
 
 #setting-btn {
   float: right;
   color: white;
   height: 14px;
+}
+
+#setting-form {
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.setting-form-cell {
+  margin: 10px;
+}
+
+.setting-form-cell-title {
+  font-size: x-small;
+  width: 100%;
+}
+
+.setting-form-cell-input {
+  margin: 2px 2px;
+  width: 100%;
+}
+
+.setting-form-cell-save {
+  width: 100px;
 }
 
 #stocks {
