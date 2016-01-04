@@ -1,0 +1,106 @@
+body {
+  width: 300px;
+}
+
+#container {
+  width: 280px;
+  word-wrap: normal;
+  margin: 10px;
+}
+
+#header {
+  height: 25px;
+  background-color: grey;
+}
+
+#header.qiita {
+  background-color: #59bb0c;
+}
+
+#header.qiita-team {
+  background-color: #458ac5;
+}
+
+#header-inner {
+  padding: 5px 10px;
+}
+
+#header-title {
+  float: left;
+  color: white;
+  font-weight: bold;
+}
+
+#back-btn {
+  float: left;
+  color: white;
+  height: 14px;
+}
+
+#setting-btn {
+  float: right;
+  color: white;
+  height: 14px;
+}
+
+#setting-form {
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.setting-form-cell {
+  margin: 10px;
+}
+
+.setting-form-cell-title {
+  font-size: x-small;
+  width: 100%;
+}
+
+.setting-form-cell-input {
+  margin: 2px 2px;
+  width: 100%;
+}
+
+.setting-form-cell-save {
+  width: 100px;
+}
+
+#stocks {
+  list-style: none;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+.stock-cell {
+  margin: 4px 4px;
+  border-bottom: 1px solid #ddd;
+}
+
+.stock-cell:last-child {
+  border-bottom: none;
+}
+
+.stock-cell-author {
+  height: 18px;
+}
+
+.stock-cell-icon {
+  float: left;
+}
+.stock-cell-icon-img {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+
+.stock-cell-userId {
+  margin-left: 18px;
+  font-size: small;
+  color: #666;
+}
+
+.stock-cell-body {
+  font-weight: bold;
+}

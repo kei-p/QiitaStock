@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Qiita Stock</title>
+    <link rel="stylesheet" href="css/popup.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  </head>
+  <body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/setting.js"></script>
+    <div id="header">
+      <div id="header-inner">
+        <a href="popup.html" id="back-btn">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+    <div id="container">
+      <form name="auth" id="setting-form">
+        <div class="setting-form-cell">
+          <div class="setting-form-cell-title">Token</div>
+          <input type="text" class="setting-form-cell-input" name="token" placeholder="token"/>
+        </div>
+        <div class="setting-form-cell">
+          <div class="setting-form-cell-title">Team Id</div>
+          <input type="text" class="setting-form-cell-input" name="teamId" placeholder="teamId (optional)"/>
+        </div>
+        <div class="setting-form-cell">
+          <div class="setting-form-cell-title">User Id</div>
+          <input type="text" class="setting-form-cell-input" name="userId" placeholder="id" readonly/>
+        </div>
+        <div style="text-align:center;">
+          <input type="button" class="btn btn-default setting-form-cell-save" value="更新" id="update"/>
+        </div>
+      </form>
+      <div id="message"></div>
+    </div>
+  </body>
+</html>
